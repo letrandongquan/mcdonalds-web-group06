@@ -1,9 +1,6 @@
 MCDONALD'S VIET NAM - WEBSITE DAT MON TRUC TUYEN
 
 Du an mon Cong nghe Web - Nhom 06
-Thanh vien: [Liet ke ten cac thanh vien trong nhom tai day]
-Giang vien huong dan: [Ten giang vien]
-
 
 1. INTRODUCTION (GIOI THIEU)
 
