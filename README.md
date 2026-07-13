@@ -50,7 +50,18 @@ Website cung cap cac tinh nang chinh sau:
    Nhap vao bieu tuong xe day o goc phai thanh menu (hoac bam vao nut gio hang noi o goc duoi cung ben phai man hinh) de xem danh sach mon da chon.
 
 4. Dat hang (Mo phong):
-   Sau khi da chon mon, nhap vao nut "Dat hang" tren thanh menu. Hien tai tinh nang dang dung o buoc mo phong.
+   Sau khi da chon mon, nhap vao nut "Dat hang" tren thanh menu. Hien tai tinh nang dang dung o buoc mo phong. 
+6. SCREENSHOTS (HINH ANH MINH HOA)
+
+- Hinh 1: Giao dien Trang chu
+  ![Trang chu](image_01.png)
+
+- Hinh 2: Danh sach Combo uu dai
+  ![Combo](image_02.png)
+
+- Hinh 3: Giao dien Gio hang mo phong
+  ![Gio hang](image_03.png)
+
 7. KNOWN LIMITATIONS (HAN CHE HIEN TAI)
 
 - Hien tai, he thong chua tich hop Backend (Xu ly thanh toan thuc te) va chua ket noi voi co so du lieu.
