@@ -53,13 +53,13 @@ Website cung cap cac tinh nang chinh sau:
    Sau khi da chon mon, nhap vao nut "Dat hang" tren thanh menu. Hien tai tinh nang dang dung o buoc mo phong. 
 6. SCREENSHOTS (HINH ANH MINH HOA)
 
-- Hinh 1: Giao dien Trang chu
+- Hinh 1: gio hang
   ![Trang chu](image_01.png)
 
 - Hinh 2: Menu
   ![Combo](image_02.png)
 
-- Hinh 3: Giao dien Gio hang mo phong
+- Hinh 3: trang chu
   ![Gio hang](image_03.png)
 
 7. KNOWN LIMITATIONS (HAN CHE HIEN TAI)
