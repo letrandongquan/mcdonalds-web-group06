@@ -56,7 +56,7 @@ Website cung cap cac tinh nang chinh sau:
 - Hinh 1: Giao dien Trang chu
   ![Trang chu](image_01.png)
 
-- Hinh 2: Danh sach Combo uu dai
+- Hinh 2: Menu
   ![Combo](image_02.png)
 
 - Hinh 3: Giao dien Gio hang mo phong
