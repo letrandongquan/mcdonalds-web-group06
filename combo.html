@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liên hệ - McDonald's</title>
+  <title>Combo - McDonald's</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -66,23 +66,19 @@
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
 <header>
   <div class="navbar">
-    <a href="index.html" class="logo">
-      <img src="images/logo/logo.png" alt="McDonald's" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-      <span class="logo-fallback">McDonald's</span>
-    </a>
+    <a href="index.html" class="logo"><img src="images/logo/logo.png" alt="McDonald's" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"><span class="logo-fallback">McDonald's</span></a>
     <nav class="nav-links" id="navLinks">
       <a href="index.html">Trang chủ</a>
       <a href="menu.html">Thực đơn</a>
-      <a href="combo.html">Combo</a>
+      <a href="combo.html" class="active">Combo</a>
       <a href="breakfast.html">Bữa sáng</a>
       <a href="dessert.html">Tráng miệng</a>
       <a href="deals.html">Khuyến mãi</a>
       <a href="about.html">Về chúng tôi</a>
       <a href="stores.html">Cửa hàng</a>
-      <a href="contact.html" class="active">Liên hệ</a>
+      <a href="contact.html">Liên hệ</a>
     </nav>
     <div class="nav-right">
       <!-- NÚT GIỎ HÀNG -->
@@ -95,14 +91,11 @@
         <span class="cart-badge" id="cartBadge">0</span>
       </button>
       <a href="menu.html" class="btn btn-primary">Đặt hàng</a>
-      <button class="burger" id="burgerBtn" aria-label="Mở menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<!-- ===== TICKER ===== -->
 <div class="ticker stripes">
   <div class="ticker-track">
     <span>COMBO 1+1 mỗi thứ Ba hàng tuần</span>
@@ -114,47 +107,19 @@
   </div>
 </div>
 
-<!-- ===== NỘI DUNG CHÍNH ===== -->
 <main class="container">
-  <section style="padding:60px 0;">
-    <div class="section-head">
-      <span class="eyebrow">Liên hệ</span>
-      <h2>Chúng tôi luôn sẵn sàng hỗ trợ bạn</h2>
-      <p>Mọi thắc mắc, góp ý hoặc câu hỏi về sản phẩm, vui lòng liên hệ với chúng tôi.</p>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-form">
-        <form onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã liên hệ!');">
-          <input type="text" placeholder="Họ và tên" required>
-          <input type="email" placeholder="Email" required>
-          <input type="tel" placeholder="Số điện thoại">
-          <textarea placeholder="Nội dung liên hệ..." required></textarea>
-          <button type="submit" class="btn btn-primary">Gửi liên hệ</button>
-        </form>
-      </div>
-      <div>
-        <div class="contact-info-item">
-          <div class="icon">📍</div>
-          <div><h4>Địa chỉ văn phòng</h4><p>Tầng 5, Tòa nhà ABC, 123 Đường ABC, Quận 1, TP.HCM</p></div>
-        </div>
-        <div class="contact-info-item">
-          <div class="icon">📞</div>
-          <div><h4>Hotline</h4><p>1800 1234 (miễn phí) - 8:00 - 22:00</p></div>
-        </div>
-        <div class="contact-info-item">
-          <div class="icon">✉️</div>
-          <div><h4>Email</h4><p>support@mcdonalds.vn</p></div>
-        </div>
-        <div class="contact-info-item">
-          <div class="icon">🌐</div>
-          <div><h4>Website</h4><p>www.mcdonalds.vn</p></div>
-        </div>
-      </div>
+  <section class="combo-section" style="background:transparent; padding:40px 0; border:none; margin:0;">
+    <div class="section-head"><span class="eyebrow">Tiết kiệm hơn</span><h2>Combo được yêu thích</h2><p>Burger + khoai tây + nước uống, trọn vẹn trong một phần với giá ưu đãi.</p></div>
+    <div class="combo-grid">
+      <div class="combo-card"><div class="item-img"><img src="images/combo/combo_big_mac.webp" alt="Combo Big Mac" onerror="this.src='https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Combo+Big+Mac'"></div><div class="combo-body"><h4>Combo Big Mac</h4><p>Big Mac + Khoai tây chiên vừa + Nước uống vừa</p><div class="combo-foot"><span><span class="old-price">99.000đ</span><span class="price">89.000đ</span></span><button class="add-btn">+</button></div></div></div>
+      <div class="combo-card"><div class="item-img"><img src="images/combo/combo_mccrispy.avif" alt="Combo McCrispy" onerror="this.src='https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Combo+McCrispy'"></div><div class="combo-body"><h4>Combo McCrispy</h4><p>McCrispy + Khoai tây chiên vừa + Nước uống vừa</p><div class="combo-foot"><span><span class="old-price">85.000đ</span><span class="price">75.000đ</span></span><button class="add-btn">+</button></div></div></div>
+      <div class="combo-card"><div class="item-img"><img src="images/combo/combo_cheeseburger.jpg" alt="Combo Cheeseburger Đôi" onerror="this.src='https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Combo+Cheeseburger'"></div><div class="combo-body"><h4>Combo Cheeseburger Đôi</h4><p>Double Cheeseburger + Khoai tây chiên vừa + Nước uống vừa</p><div class="combo-foot"><span><span class="old-price">79.000đ</span><span class="price">69.000đ</span></span><button class="add-btn">+</button></div></div></div>
+      <div class="combo-card"><div class="item-img"><span class="tag">Tiết kiệm nhất</span><img src="images/combo/combo_giadinh.jpg" alt="Combo Gia Đình" onerror="this.src='https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Combo+Gia+%C4%90%C3%ACnh'"></div><div class="combo-body"><h4>Combo Gia Đình (4 phần)</h4><p>2 Big Mac + 2 McChicken + 4 Khoai tây + 4 Nước uống</p><div class="combo-foot"><span><span class="old-price">299.000đ</span><span class="price">259.000đ</span></span><button class="add-btn">+</button></div></div></div>
+      <div class="combo-card"><div class="item-img"><img src="images/combo/combo_garan.jpg" alt="Combo Gà Rán" onerror="this.src='https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Combo+G%C3%A0+R%C3%A1n'"></div><div class="combo-body"><h4>Combo Gà Rán (4 miếng)</h4><p>Gà rán giòn cay (4 miếng) + Khoai tây chiên lớn + 4 Nước uống</p><div class="combo-foot"><span><span class="old-price">159.000đ</span><span class="price">139.000đ</span></span><button class="add-btn">+</button></div></div></div>
     </div>
   </section>
 </main>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -168,40 +133,13 @@
           <a href="https://www.youtube.com/@McDonalds" target="_blank" rel="noopener noreferrer"><img src="images/icons/youtube.png" alt="YouTube" onerror="this.style.opacity='0.2'"></a>
         </div>
       </div>
-      <div>
-        <h5>Thực đơn</h5>
-        <ul>
-          <li><a href="menu.html#burger">Burger</a></li>
-          <li><a href="menu.html#ga">Gà rán</a></li>
-          <li><a href="menu.html#drinks">Đồ uống</a></li>
-          <li><a href="combo.html">Combo</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Công ty</h5>
-        <ul>
-          <li><a href="about.html">Về chúng tôi</a></li>
-          <li><a href="stores.html">Cửa hàng</a></li>
-          <li><a href="#">Tuyển dụng</a></li>
-          <li><a href="#">Tin tức</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Hỗ trợ</h5>
-        <ul>
-          <li><a href="contact.html">Liên hệ</a></li>
-          <li><a href="#">Câu hỏi thường gặp</a></li>
-          <li><a href="#">Chính sách bảo mật</a></li>
-          <li><a href="#">Điều khoản sử dụng</a></li>
-        </ul>
-      </div>
+      <div><h5>Thực đơn</h5><ul><li><a href="menu.html#burger">Burger</a></li><li><a href="menu.html#ga">Gà rán</a></li><li><a href="menu.html#drinks">Đồ uống</a></li><li><a href="combo.html">Combo</a></li></ul></div>
+      <div><h5>Công ty</h5><ul><li><a href="about.html">Về chúng tôi</a></li><li><a href="stores.html">Cửa hàng</a></li><li><a href="#">Tuyển dụng</a></li><li><a href="#">Tin tức</a></li></ul></div>
+      <div><h5>Hỗ trợ</h5><ul><li><a href="contact.html">Liên hệ</a></li><li><a href="#">Câu hỏi thường gặp</a></li><li><a href="#">Chính sách bảo mật</a></li><li><a href="#">Điều khoản sử dụng</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 McDonald's Việt Nam</span>
-    </div>
+    <div class="footer-bottom"><span>© 2026 McDonald's Việt Nam</span></div>
   </div>
 </footer>
-
 <!-- NÚT GIỎ HÀNG NỔI (FLOAT) -->
 <a href="cart.html" class="float-cart" id="floatCart" style="z-index:120; background:var(--red); width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 24px -6px rgba(218,41,28,.65); position:fixed; bottom:20px; right:20px; text-decoration:none;">
   <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;pointer-events:none;">

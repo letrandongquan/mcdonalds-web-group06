@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cửa hàng - McDonald's</title>
@@ -8,28 +9,502 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== Nút giỏ hàng trên header ===== */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .cart-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+    .cart-btn:hover {
+      border-color: var(--yellow);
+      background: rgba(255,199,44,0.12);
+      transform: translateY(-1px);
+    }
+    .cart-btn:active {
+      transform: translateY(0);
+    }
+    .cart-btn .cart-icon {
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+    }
+    .cart-btn .cart-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 18px;
+      text-align: center;
+      box-shadow: 0 0 0 2px #0d0d0d;
+      pointer-events: none;
+    }
+    
+    /* ===== Store Layout ===== */
+    .store-wrapper {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      align-items: stretch;
+      min-height: 600px;
+    }
+    
+    .store-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+      max-height: 600px;
+      padding-right: 4px;
+    }
+    
+    .store-sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    .store-sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    .store-sidebar::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+    
+    .store-sidebar::-webkit-scrollbar-thumb:hover {
+      background: var(--text-soft);
+    }
+    
+    .store-item {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    
+    .store-item:hover {
+      border-color: var(--red);
+      transform: translateX(6px);
+      box-shadow: 0 8px 24px rgba(218, 41, 28, 0.15);
+    }
+    
+    .store-item.active {
+      border-color: var(--red);
+      background: var(--card-2);
+      box-shadow: 0 8px 24px rgba(218, 41, 28, 0.25);
+    }
+    
+    .store-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    
+    .store-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .store-item:hover .store-thumb img {
+      transform: scale(1.05);
+    }
+    
+    .store-info {
+      padding: 10px 12px;
+    }
+    
+    .store-info h4 {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      color: var(--text);
+      line-height: 1.2;
+      font-weight: 600;
+    }
+    
+    .store-address {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-bottom: 3px;
+      line-height: 1.2;
+    }
+    
+    .store-hours {
+      font-size: 0.7rem;
+      color: var(--yellow);
+      font-weight: 700;
+    }
+    
+    .store-map-container {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+      min-height: 600px;
+    }
+    
+    #storeMap {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-lg);
+    }
+    
+    .map-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(12, 12, 12, 0.98), rgba(12, 12, 12, 0.9), rgba(12, 12, 12, 0.7), transparent);
+      padding: 16px 20px;
+      color: var(--text);
+      z-index: 10;
+    }
+    
+    .map-info h3 {
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+      line-height: 1.2;
+    }
+    
+    .map-info p {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      line-height: 1.3;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .store-wrapper {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        min-height: auto;
+      }
+      
+      .store-sidebar {
+        flex-direction: row;
+        max-height: none;
+        overflow-y: visible;
+        overflow-x: auto;
+        gap: 12px;
+        padding-right: 0;
+      }
+      
+      .store-item {
+        flex: 0 0 calc(33.333% - 8px);
+        min-width: 150px;
+      }
+      
+      .store-thumb {
+        aspect-ratio: auto;
+        height: 120px;
+      }
+      
+      .store-map-container {
+        min-height: 400px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .store-wrapper {
+        gap: 16px;
+      }
+      
+      .store-item {
+        flex: 0 0 calc(50% - 8px);
+        min-width: 120px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header><!-- Header với active Cửa hàng --></header>
-<div class="ticker stripes"><!-- Giống --></div>
+<header>
+  <div class="navbar">
+    <a href="index.html" class="logo">
+      <img src="images/logo/logo.png" alt="McDonald's" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+      <span class="logo-fallback">McDonald's</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Trang chủ</a>
+      <a href="menu.html">Thực đơn</a>
+      <a href="combo.html">Combo</a>
+      <a href="breakfast.html">Bữa sáng</a>
+      <a href="dessert.html">Tráng miệng</a>
+      <a href="deals.html">Khuyến mãi</a>
+      <a href="about.html">Về chúng tôi</a>
+      <a href="stores.html" class="active">Cửa hàng</a>
+      <a href="contact.html">Liên hệ</a>
+    </nav>
+    <div class="nav-right">
+      <!-- NÚT GIỎ HÀNG -->
+      <button class="cart-btn" id="cartBtn" aria-label="Giỏ hàng">
+        <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1.4"></circle>
+          <circle cx="19" cy="21" r="1.4"></circle>
+          <path d="M1 1h3.2l2.68 13.39a2 2 0 0 0 2 1.61h9.3a2 2 0 0 0 2-1.62L22 6H6"></path>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <a href="menu.html" class="btn btn-primary">Đặt hàng</a>
+      <button class="burger" id="burgerBtn" aria-label="Mở menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="ticker stripes">
+  <div class="ticker-track">
+    <span>COMBO 1+1 mỗi thứ Ba hàng tuần</span>
+    <span>Miễn phí giao hàng cho đơn từ 99.000đ</span>
+    <span>Tải app nhận ngay ưu đãi 50.000đ</span>
+    <span>Phục vụ Bữa Sáng từ 6:00 - 10:30</span>
+    <span>COMBO 1+1 mỗi thứ Ba hàng tuần</span>
+    <span>Miễn phí giao hàng cho đơn từ 99.000đ</span>
+  </div>
+</div>
 
 <main class="container">
   <section class="store-section" style="background:transparent; padding:40px 0; border:none;">
-    <div class="section-head"><span class="eyebrow">Hệ thống cửa hàng</span><h2>Tìm cửa hàng gần bạn</h2><p>Ghé thăm một trong các cửa hàng của chúng tôi tại TP. Hồ Chí Minh.</p></div>
-    <div class="store-grid">
-      <div class="store-card"><div class="item-img"><img src="images/store/store-1.jpg" alt="Cửa hàng Nguyễn Huệ" onerror="this.src='https://via.placeholder.com/400x250/DA291C/FFFFFF?text=Nguy%E1%BB%85n+Hu%E1%BB%87'"></div><div class="store-body"><h4>McDonald's Nguyễn Huệ</h4><div class="store-row"><b>Địa chỉ</b><span>Số 2-6 Nguyễn Huệ, Quận 1, TP.HCM</span></div><div class="store-row"><b>Giờ mở cửa</b><span>6:00 - 23:00 (Thứ 2 - CN)</span></div></div></div>
-      <div class="store-card"><div class="item-img"><img src="images/store/store-2.jpg" alt="Cửa hàng Vincom Đồng Khởi" onerror="this.src='https://via.placeholder.com/400x250/DA291C/FFFFFF?text=Vincom+%C4%90%E1%BB%93ng+Kh%E1%BB%9Fi'"></div><div class="store-body"><h4>McDonald's Vincom Đồng Khởi</h4><div class="store-row"><b>Địa chỉ</b><span>72 Lê Thánh Tôn, Quận 1, TP.HCM</span></div><div class="store-row"><b>Giờ mở cửa</b><span>8:00 - 22:00 (Thứ 2 - CN)</span></div></div></div>
-      <div class="store-card"><div class="item-img"><img src="images/store/store-3.jpg" alt="Cửa hàng Cộng Hòa" onerror="this.src='https://via.placeholder.com/400x250/DA291C/FFFFFF?text=C%E1%BB%99ng+H%C3%B2a'"></div><div class="store-body"><h4>McDonald's Cộng Hòa</h4><div class="store-row"><b>Địa chỉ</b><span>222 Cộng Hòa, Tân Bình, TP.HCM</span></div><div class="store-row"><b>Giờ mở cửa</b><span>6:00 - 24:00 (Thứ 2 - CN)</span></div></div></div>
+    <div class="section-head">
+      <span class="eyebrow">Hệ thống cửa hàng</span>
+      <h2>Tìm cửa hàng gần bạn</h2>
+      <p>Ghé thăm một trong các cửa hàng của chúng tôi tại TP. Hồ Chí Minh.</p>
     </div>
-    <!-- Nhúng Google Maps (có thể thay bằng iframe thật) -->
-    <div style="margin-top:40px; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border);">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3919.497289265483!2d106.7006827!3d10.7768897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smcdonald%27s%20ho%20chi%20minh!5e0!3m2!1svi!2s!4v1710000000000" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <div class="store-wrapper">
+      <!-- LEFT: Store Images -->
+      <div class="store-sidebar">
+        <div class="store-item" data-store="0" data-lat="10.7768897" data-lng="106.7006827" data-address="Số 2-6 Nguyễn Huệ, Quận 1, TP.HCM">
+          <div class="store-thumb">
+            <img src="images/store/store1.jpg" alt="Cửa hàng Nguyễn Huệ" onerror="this.src='https://via.placeholder.com/400x250/DA291C/FFFFFF?text=Nguy%E1%BB%85n+Hu%E1%BB%87'">
+          </div>
+          <div class="store-info">
+            <h4>McDonald's Nguyễn Huệ</h4>
+            <p class="store-address">Số 2-6 Nguyễn Huệ, Quận 1, TP.HCM</p>
+            <p class="store-hours">6:00 - 23:00 (Thứ 2 - CN)</p>
+          </div>
+        </div>
+        
+        <div class="store-item" data-store="1" data-lat="10.7760834" data-lng="106.7031919" data-address="72 Lê Thánh Tôn, Quận 1, TP.HCM">
+          <div class="store-thumb">
+            <img src="images/store/store_vincom.webp" alt="Cửa hàng Vincom Đồng Khởi" onerror="this.src='https://via.placeholder.com/400x250/DA291C/FFFFFF?text=Vincom+%C4%90%E1%BB%93ng+Kh%E1%BB%9Fi'">
+          </div>
+          <div class="store-info">
+            <h4>McDonald's Vincom Đồng Khởi</h4>
+            <p class="store-address">72 Lê Thánh Tôn, Quận 1, TP.HCM</p>
+            <p class="store-hours">8:00 - 22:00 (Thứ 2 - CN)</p>
+          </div>
+        </div>
+        
+        <div class="store-item" data-store="2" data-lat="10.8119949" data-lng="106.6748255" data-address="222 Cộng Hòa, Tân Bình, TP.HCM">
+          <div class="store-thumb">
+            <img src="images/store/store_conghoa.jpg" alt="Cửa hàng Cộng Hòa" onerror="this.src='https://via.placeholder.com/400x250/DA291C/FFFFFF?text=C%E1%BB%99ng+H%C3%B2a'">
+          </div>
+          <div class="store-info">
+            <h4>McDonald's Cộng Hòa</h4>
+            <p class="store-address">222 Cộng Hòa, Tân Bình, TP.HCM</p>
+            <p class="store-hours">6:00 - 24:00 (Thứ 2 - CN)</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- RIGHT: Google Map -->
+      <div class="store-map-container">
+        <div id="storeMap" style="width: 100%; height: 100%; border-radius: var(--radius-lg);"></div>
+        <div class="map-info">
+          <h3 id="mapStoreName">McDonald's Nguyễn Huệ</h3>
+          <p id="mapStoreAddress">Số 2-6 Nguyễn Huệ, Quận 1, TP.HCM</p>
+        </div>
+      </div>
     </div>
   </section>
 </main>
 
-<footer><!-- Giống --></footer>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="images/logo/logo.png" alt="McDonald's" onerror="this.style.display='none'"></div>
+        <p class="footer-p">Mang lại niềm vui trong từng bữa ăn cho mọi gia đình Việt Nam.</p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/McDonalds/" target="_blank" rel="noopener noreferrer"><img src="images/icons/facebook.png" alt="Facebook" onerror="this.style.opacity='0.2'"></a>
+          <a href="https://www.instagram.com/mcdonalds/" target="_blank" rel="noopener noreferrer"><img src="images/icons/instagram.png" alt="Instagram" onerror="this.style.opacity='0.2'"></a>
+          <a href="https://www.tiktok.com/@mcdonalds" target="_blank" rel="noopener noreferrer"><img src="images/icons/tiktok.png" alt="TikTok" onerror="this.style.opacity='0.2'"></a>
+          <a href="https://www.youtube.com/@McDonalds" target="_blank" rel="noopener noreferrer"><img src="images/icons/youtube.png" alt="YouTube" onerror="this.style.opacity='0.2'"></a>
+        </div>
+      </div>
+      <div>
+        <h5>Thực đơn</h5>
+        <ul>
+          <li><a href="menu.html#burger">Burger</a></li>
+          <li><a href="menu.html#ga">Gà rán</a></li>
+          <li><a href="menu.html#drinks">Đồ uống</a></li>
+          <li><a href="combo.html">Combo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Công ty</h5>
+        <ul>
+          <li><a href="about.html">Về chúng tôi</a></li>
+          <li><a href="stores.html">Cửa hàng</a></li>
+          <li><a href="#">Tuyển dụng</a></li>
+          <li><a href="#">Tin tức</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Hỗ trợ</h5>
+        <ul>
+          <li><a href="contact.html">Liên hệ</a></li>
+          <li><a href="#">Câu hỏi thường gặp</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Điều khoản sử dụng</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 McDonald's Việt Nam</span>
+    </div>
+  </div>
+</footer>
+
+<!-- NÚT GIỎ HÀNG NỔI (FLOAT) -->
+<a href="cart.html" class="float-cart" id="floatCart" style="z-index:120; background:var(--red); width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 24px -6px rgba(218,41,28,.65); position:fixed; bottom:20px; right:20px; text-decoration:none;">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;pointer-events:none;">
+    <circle cx="9" cy="21" r="1.4"></circle>
+    <circle cx="19" cy="21" r="1.4"></circle>
+    <path d="M1 1h3.2l2.68 13.39a2 2 0 0 0 2 1.61h9.3a2 2 0 0 0 2-1.62L22 6H6"></path>
+  </svg>
+</a>
+
 <script src="js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+  let map;
+  let currentMarker = null;
+  let markers = [];
+  let storeMarkers = {};
+
+  
+  const storeData = [
+    {
+      name: "McDonald's Nguyễn Huệ",
+      address: "Số 2-6 Nguyễn Huệ, Quận 1, TP.HCM",
+      lat: 10.7768897,
+      lng: 106.7006827
+    },
+    {
+      name: "McDonald's Vincom Đồng Khởi",
+      address: "72 Lê Thánh Tôn, Quận 1, TP.HCM",
+      lat: 10.7760834,
+      lng: 106.7031919
+    },
+    {
+      name: "McDonald's Cộng Hòa",
+      address: "222 Cộng Hòa, Tân Bình, TP.HCM",
+      lat: 10.8119949,
+      lng: 106.6748255
+    }
+  ];
+
+  
+  const customIcon = L.icon({
+    iconUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDMyIDQwIj48cGF0aCBmaWxsPSIjREEyOTFDIiBkPSJNMTYgMEMxMi4zIDAgOSAzLjMgOSA3LjZjMCA3IDcgMzIuNCA3IDMyLjRzNy0yNS40IDctMzIuNGMwLTQuMy0zLjMtNy42LTctNy42eiIvPjwvc3ZnPg==',
+    iconSize: [32, 40],
+    iconAnchor: [16, 40],
+    popupAnchor: [0, -40]
+  });
+
+  function initMap() {
+    
+    map = L.map('storeMap').setView([storeData[0].lat, storeData[0].lng], 13);
+
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(map);
+
+    
+    storeData.forEach((store, index) => {
+      const marker = L.marker([store.lat, store.lng], { icon: customIcon })
+        .bindPopup(store.name)
+        .addTo(map);
+
+      marker.on('click', () => {
+        selectStore(index);
+      });
+
+      storeMarkers[index] = marker;
+    });
+
+    
+    selectStore(0);
+  }
+
+  function selectStore(index) {
+    
+    document.querySelectorAll('.store-item').forEach(item => {
+      item.classList.remove('active');
+    });
+
+    
+    document.querySelector(`[data-store="${index}"]`).classList.add('active');
+
+    
+    const store = storeData[index];
+    map.setView([store.lat, store.lng], 15);
+
+    
+    document.getElementById('mapStoreName').textContent = store.name;
+    document.getElementById('mapStoreAddress').textContent = store.address;
+
+    
+    if (storeMarkers[index]) {
+      storeMarkers[index].openPopup();
+    }
+  }
+
+  
+  document.querySelectorAll('.store-item').forEach((item, index) => {
+    item.addEventListener('click', () => selectStore(index));
+  });
+
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMap);
+  } else {
+    initMap();
+  }
+</script>
 </body>
 </html>

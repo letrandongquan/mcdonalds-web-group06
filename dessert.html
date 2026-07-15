@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cửa hàng - McDonald's</title>
+  <title>Tráng miệng - McDonald's</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -62,144 +62,11 @@
       box-shadow: 0 0 0 2px #0d0d0d;
       pointer-events: none;
     }
-
-    .product-detail-section {
-      padding: 40px 0 80px;
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--red);
-      font-weight: 600;
-      margin-bottom: 24px;
-      text-decoration: none;
-    }
-    .product-detail-shell {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 32px;
-      align-items: center;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 32px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.16);
-    }
-    .product-image-wrap {
-      border-radius: 22px;
-      overflow: hidden;
-      background: linear-gradient(135deg, rgba(255,199,44,0.16), rgba(218,41,28,0.08));
-      padding: 16px;
-    }
-    .product-image-wrap img {
-      width: 100%;
-      max-height: 460px;
-      object-fit: cover;
-      border-radius: 18px;
-      display: block;
-    }
-    .product-category {
-      display: inline-block;
-      background: rgba(255,199,44,0.18);
-      color: var(--yellow);
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: 12px;
-    }
-    .product-title {
-      font-size: 2rem;
-      margin: 0 0 12px;
-    }
-    .product-desc {
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-    .product-price-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-    .product-price {
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: var(--yellow);
-    }
-    .product-badge {
-      background: var(--red);
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-    .product-features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 24px;
-      display: grid;
-      gap: 10px;
-    }
-    .product-features li {
-      padding: 10px 12px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      color: var(--text);
-    }
-    .product-extra {
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-    .product-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .qty-wrap {
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.03);
-    }
-    .qty-btn {
-      width: 42px;
-      height: 42px;
-      border: 0;
-      background: transparent;
-      color: var(--text);
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-    .qty-wrap input {
-      width: 54px;
-      height: 42px;
-      border: 0;
-      background: transparent;
-      color: var(--text);
-      text-align: center;
-      outline: none;
-      font-size: 1rem;
-    }
-    @media (max-width: 900px) {
-      .product-detail-shell {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 <body>
 
+<!-- ===== HEADER ===== -->
 <header>
   <div class="navbar">
     <a href="index.html" class="logo">
@@ -211,10 +78,10 @@
       <a href="menu.html">Thực đơn</a>
       <a href="combo.html">Combo</a>
       <a href="breakfast.html">Bữa sáng</a>
-      <a href="dessert.html">Tráng miệng</a>
+      <a href="dessert.html" class="active">Tráng miệng</a>
       <a href="deals.html">Khuyến mãi</a>
       <a href="about.html">Về chúng tôi</a>
-      <a href="stores.html" class="active">Cửa hàng</a>
+      <a href="stores.html">Cửa hàng</a>
       <a href="contact.html">Liên hệ</a>
     </nav>
     <div class="nav-right">
@@ -235,6 +102,7 @@
   </div>
 </header>
 
+<!-- ===== TICKER ===== -->
 <div class="ticker stripes">
   <div class="ticker-track">
     <span>COMBO 1+1 mỗi thứ Ba hàng tuần</span>
@@ -246,40 +114,75 @@
   </div>
 </div>
 
+<!-- ===== NỘI DUNG CHÍNH ===== -->
 <main class="container">
-  <section class="product-detail-section" data-product-detail-root>
-    <a href="menu.html" class="back-link">← Quay lại thực đơn</a>
-    <div class="product-detail-shell">
-      <div class="product-image-wrap">
-        <img class="product-image" src="images/menu/burger/big-mac.jpg" alt="Big Mac">
-      </div>
-      <div class="product-info">
-        <span class="product-category">Burger</span>
-        <h2 class="product-title">Big Mac</h2>
-        <p class="product-desc">Hai lớp bò, sốt Big Mac đặc biệt, rau diếp, phô mai, dưa chua và hành tây.</p>
-        <div class="product-price-row">
-          <span class="product-price">69.000đ</span>
-          <span class="product-badge">Best seller</span>
+  <section class="menu-section">
+    <div class="section-head">
+      <span class="eyebrow">Thực đơn</span>
+      <h2>Tráng miệng</h2>
+      <p>Kết thúc bữa ăn ngọt ngào với các món tráng miệng được yêu thích nhất.</p>
+    </div>
+<div class="menu-grid">
+      <div class="item-card">
+        <div class="item-img">
+          <img src="images/trangmieng/banh_tao_nuong.png" alt="Bánh Táo Nướng" onerror="this.src='https://via.placeholder.com/300x200/DA291C/FFFFFF?text=B%C3%A1nh+T%C3%A1o+N%C6%B0%E1%BB%9Bng'">
         </div>
-        <ul class="product-features">
-          <li>2 lớp thịt bò mềm và thơm</li>
-          <li>Rau diếp tươi và dưa chua giòn</li>
-          <li>Sốt Big Mac đặc trưng</li>
-        </ul>
-        <p class="product-extra">Phù hợp cho bữa ăn nhanh, đầy đặn và tiện lợi bất cứ lúc nào.</p>
-        <div class="product-actions">
-          <div class="qty-wrap">
-            <button type="button" class="qty-btn" data-action="minus">−</button>
-            <input id="qtyInput" type="number" min="1" max="10" value="1">
-            <button type="button" class="qty-btn" data-action="plus">+</button>
-          </div>
-          <button id="addToCartBtn" class="btn btn-primary">Thêm vào giỏ</button>
+        <div class="item-info">
+          <h4>Bánh Táo Nướng</h4>
+          <p>Vỏ bánh giòn rụm, nhân táo nóng hổi thơm quế.</p>
+        </div>
+        <div class="item-foot">
+          <span class="price">19.000đ</span>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-img">
+          <img src="images/trangmieng/kem_sundae.webp" alt="Kem Sundae" onerror="this.src='https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Kem+Sundae'">
+        </div>
+        <div class="item-info">
+          <h4>Kem Sundae Socola / Dâu</h4>
+          <p>Kem mềm mịn phủ sốt socola hoặc dâu đậm đà.</p>
+        </div>
+        <div class="item-foot">
+          <span class="price">19.000đ</span>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-img">
+          <img src="images/trangmieng/donut.jpg" alt="Donut" onerror="this.src='https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Donut'">
+        </div>
+        <div class="item-info">
+          <h4>Bánh Donut Phủ Đường</h4>
+          <p>Mềm xốp, phủ lớp đường ngọt dịu bên ngoài.</p>
+        </div>
+        <div class="item-foot">
+          <span class="price">15.000đ</span>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-img">
+          <img src="images/trangmieng/kem_oc_que.png" alt="Kem Ốc Quế" onerror="this.src='https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Kem+%E1%BB%90c+Qu%E1%BA%BF'">
+        </div>
+        <div class="item-info">
+          <h4>Kem Ốc Quế</h4>
+          <p>Kem vani mềm mịn trong vỏ ốc quế giòn tan.</p>
+        </div>
+        <div class="item-foot">
+          <span class="price">10.000đ</span>
+          <button class="add-btn">+</button>
         </div>
       </div>
     </div>
   </section>
 </main>
 
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="container">
     <div class="footer-grid">
