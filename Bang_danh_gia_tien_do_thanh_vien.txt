@@ -1,0 +1,25 @@
+Bảng đánh giá tiến độ thành viên
+
+  -----------------------------------------------------------------------
+  Tên thành viên          Nội dung hoàn thành     Tiến độ hoàn thành
+  ----------------------- ----------------------- -----------------------
+  Lê Trần Đông Quân       Hoàn thành toàn bộ      100%
+                          nhiệm vụ được phân      
+                          công, kiểm tra và bàn   
+                          giao đầy đủ.            
+
+  Nguyễn Hoàng Vương      Hoàn thành toàn bộ      100%
+                          nhiệm vụ được phân      
+                          công, hỗ trợ kiểm thử   
+                          và hoàn thiện tài liệu. 
+
+  Lê Quốc Đại             Hoàn thành toàn bộ chức  100%
+                          năng được giao, xử lý   
+                          lỗi và cập nhật theo    
+                          yêu cầu.                
+
+  Nguyễn Trần Hạo Nhiên   Hoàn thành toàn bộ phần  100%
+                          việc phụ trách, rà soát 
+                          và xác nhận kết quả     
+                          cuối cùng.              
+  -----------------------------------------------------------------------
