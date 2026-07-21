@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ hàng - McDonald's</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== Nút giỏ hàng trên header ===== */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .cart-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+    .cart-btn:hover {
+      border-color: var(--yellow);
+      background: rgba(255,199,44,0.12);
+      transform: translateY(-1px);
+    }
+    .cart-btn .cart-icon {
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+    }
+    .cart-btn .cart-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 18px;
+      text-align: center;
+      box-shadow: 0 0 0 2px #0d0d0d;
+      pointer-events: none;
+    }
+    /* Cart page specific styles */
+    .cart-section {
+      padding: 60px 0;
+    }
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .cart-header h2 {
+      font-size: 28px;
+      color: var(--text);
+    }
+    .cart-header .count {
+      color: var(--text-soft);
+      font-size: 15px;
+    }
+
+    .cart-empty {
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .cart-empty .icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+      opacity: 0.3;
+    }
+    .cart-empty h3 {
+      font-size: 24px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .cart-empty p {
+      color: var(--text-soft);
+      margin-bottom: 24px;
+    }
+
+    .cart-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .cart-table th {
+      text-align: left;
+      padding: 14px 16px;
+      color: var(--text-soft);
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border);
+    }
+    .cart-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    .cart-table .product-cell {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .cart-table .product-cell img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      background: var(--card-2);
+    }
+    .cart-table .product-cell .info h4 {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .cart-table .product-cell .info p {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+    .cart-table .qty-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cart-table .qty-control button {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s ease;
+    }
+    .cart-table .qty-control button:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+    .cart-table .qty-control span {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      min-width: 30px;
+      text-align: center;
+    }
+    .cart-table .item-price {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 16px;
+    }
+    .cart-table .item-total {
+      font-weight: 700;
+      color: var(--yellow);
+      font-size: 17px;
+    }
+    .cart-table .remove-btn {
+      background: none;
+      border: none;
+      color: var(--text-soft);
+      cursor: pointer;
+      font-size: 18px;
+      transition: color 0.2s ease;
+    }
+    .cart-table .remove-btn:hover {
+      color: var(--red);
+    }
+
+    .cart-summary {
+      margin-top: 30px;
+      padding: 24px 28px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .cart-summary .total-label {
+      font-size: 18px;
+      color: var(--text-soft);
+    }
+    .cart-summary .total-price {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--yellow);
+    }
+    .cart-summary .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .cart-summary .actions .btn-secondary {
+      border-color: var(--border);
+    }
+    .cart-summary .actions .btn-secondary:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    @media (max-width: 768px) {
+      .cart-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .cart-table th,
+      .cart-table td {
+        padding: 12px 10px;
+      }
+      .cart-table .product-cell img {
+        width: 44px;
+        height: 44px;
+      }
+      .cart-summary {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+      .cart-summary .actions {
+        justify-content: center;
+      }
+      .cart-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="navbar">
+    <a href="index.html" class="logo">
+      <img src="images/logo/logo.png" alt="McDonald's" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+      <span class="logo-fallback">McDonald's</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Trang chủ</a>
+      <a href="menu.html">Thực đơn</a>
+      <a href="combo.html">Combo</a>
+      <a href="breakfast.html">Bữa sáng</a>
+      <a href="dessert.html">Tráng miệng</a>
+      <a href="deals.html">Khuyến mãi</a>
+      <a href="about.html">Về chúng tôi</a>
+      <a href="stores.html">Cửa hàng</a>
+      <a href="contact.html">Liên hệ</a>
+    </nav>
+    <div class="nav-right">
+      <button class="cart-btn" id="cartBtn" aria-label="Giỏ hàng">
+        <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1.4"></circle>
+          <circle cx="19" cy="21" r="1.4"></circle>
+          <path d="M1 1h3.2l2.68 13.39a2 2 0 0 0 2 1.61h9.3a2 2 0 0 0 2-1.62L22 6H6"></path>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <a href="menu.html" class="btn btn-primary">Đặt hàng</a>
+      <button class="burger" id="burgerBtn" aria-label="Mở menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== TICKER ===== -->
+<div class="ticker stripes">
+  <div class="ticker-track">
+    <span>COMBO 1+1 mỗi thứ Ba hàng tuần</span>
+    <span>Miễn phí giao hàng cho đơn từ 99.000đ</span>
+    <span>Tải app nhận ngay ưu đãi 50.000đ</span>
+    <span>Phục vụ Bữa Sáng từ 6:00 - 10:30</span>
+    <span>COMBO 1+1 mỗi thứ Ba hàng tuần</span>
+    <span>Miễn phí giao hàng cho đơn từ 99.000đ</span>
+  </div>
+</div>
+
+<!-- ===== NỘI DUNG CHÍNH ===== -->
+<main class="container cart-section">
+  <div class="cart-header">
+    <h2>🛒 Giỏ hàng của bạn</h2>
+    <span class="count" id="itemCount">0 sản phẩm</span>
+  </div>
+
+  <!-- Danh sách giỏ hàng -->
+  <div id="cartContent">
+    <!-- Giỏ hàng trống -->
+    <div class="cart-empty" id="emptyCart">
+      <div class="icon">🛒</div>
+      <h3>Giỏ hàng của bạn đang trống</h3>
+      <p>Hãy thêm một số món ngon từ thực đơn của chúng tôi nhé!</p>
+      <a href="menu.html" class="btn btn-primary">Xem thực đơn</a>
+    </div>
+
+    <!-- Bảng giỏ hàng (ẩn khi trống) -->
+    <div id="cartTableWrapper" style="display:none;">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Sản phẩm</th>
+            <th>Đơn giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cartItems">
+          <!-- Các item sẽ được thêm bởi JavaScript -->
+        </tbody>
+      </table>
+
+      <!-- Tổng kết -->
+      <div class="cart-summary">
+        <div>
+          <span class="total-label">Tổng cộng</span>
+          <span class="total-price" id="cartTotal">0đ</span>
+        </div>
+        <div class="actions">
+          <a href="menu.html" class="btn btn-secondary">Tiếp tục mua</a>
+          <button class="btn btn-primary" id="checkoutBtn">Tiến hành thanh toán</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="images/logo/logo.png" alt="McDonald's" onerror="this.style.display='none'"></div>
+        <p class="footer-p">Mang lại niềm vui trong từng bữa ăn cho mọi gia đình Việt Nam.</p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/McDonalds/" target="_blank" rel="noopener noreferrer"><img src="images/icons/facebook.png" alt="Facebook" onerror="this.style.opacity='0.2'"></a>
+          <a href="https://www.instagram.com/mcdonalds/" target="_blank" rel="noopener noreferrer"><img src="images/icons/instagram.png" alt="Instagram" onerror="this.style.opacity='0.2'"></a>
+          <a href="https://www.tiktok.com/@mcdonalds" target="_blank" rel="noopener noreferrer"><img src="images/icons/tiktok.png" alt="TikTok" onerror="this.style.opacity='0.2'"></a>
+          <a href="https://www.youtube.com/@McDonalds" target="_blank" rel="noopener noreferrer"><img src="images/icons/youtube.png" alt="YouTube" onerror="this.style.opacity='0.2'"></a>
+        </div>
+      </div>
+      <div>
+        <h5>Thực đơn</h5>
+        <ul>
+          <li><a href="menu.html">Burger</a></li>
+          <li><a href="menu.html">Gà rán</a></li>
+          <li><a href="menu.html">Đồ uống</a></li>
+          <li><a href="combo.html">Combo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Công ty</h5>
+        <ul>
+          <li><a href="about.html">Về chúng tôi</a></li>
+          <li><a href="stores.html">Cửa hàng</a></li>
+          <li><a href="#">Tuyển dụng</a></li>
+          <li><a href="#">Tin tức</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Hỗ trợ</h5>
+        <ul>
+          <li><a href="contact.html">Liên hệ</a></li>
+          <li><a href="#">Câu hỏi thường gặp</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Điều khoản sử dụng</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 McDonald's Việt Nam</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // ===== GIỎ HÀNG - LƯU TRỮ VÀ HIỂN THỊ =====
+
+  // Lấy dữ liệu giỏ hàng từ localStorage
+  function getCart() {
+    try {
+      return JSON.parse(localStorage.getItem('mcdCart')) || [];
+    } catch {
+      return [];
+    }
+  }
+
+  // Lưu giỏ hàng vào localStorage
+  function saveCart(cart) {
+    localStorage.setItem('mcdCart', JSON.stringify(cart));
+  }
+
+  // Cập nhật badge trên header
+  function updateBadge() {
+    const cart = getCart();
+    const total = cart.reduce((sum, item) => sum + item.qty, 0);
+    const badge = document.getElementById('cartBadge');
+    if (badge) badge.textContent = total;
+    return total;
+  }
+
+  // Định dạng tiền tệ
+  function formatPrice(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + 'đ';
+  }
+
+  // Render giỏ hàng trên trang cart.html
+  function renderCartPage() {
+    const cart = getCart();
+    const emptyCart = document.getElementById('emptyCart');
+    const tableWrapper = document.getElementById('cartTableWrapper');
+    const tbody = document.getElementById('cartItems');
+    const totalEl = document.getElementById('cartTotal');
+    const countEl = document.getElementById('itemCount');
+
+    // Cập nhật badge
+    const totalItems = updateBadge();
+
+    if (cart.length === 0) {
+      emptyCart.style.display = 'block';
+      tableWrapper.style.display = 'none';
+      if (countEl) countEl.textContent = '0 sản phẩm';
+      return;
+    }
+
+    emptyCart.style.display = 'none';
+    tableWrapper.style.display = 'block';
+    if (countEl) countEl.textContent = totalItems + ' sản phẩm';
+
+    let html = '';
+    let total = 0;
+
+    // Ensure items have numeric price/qty; if price/image/desc missing, try to resolve from PRODUCT_DETAIL_DATA
+    cart.forEach((item, index) => {
+      let price = Number(item.price) || 0;
+      const qty = Number(item.qty) || 0;
+
+      if (typeof PRODUCT_DETAIL_DATA !== 'undefined') {
+        const match = PRODUCT_DETAIL_DATA.find(p => p.name === item.name || p.id === item.id);
+        if (match) {
+          if (!price) price = Number(match.price) || 0;
+          // fill missing image/desc from product data
+          if (!item.image && match.image) {
+            cart[index].image = match.image;
+            item.image = match.image;
+          }
+          if (!item.desc && match.description) {
+            cart[index].desc = match.description;
+            item.desc = match.description;
+          }
+        }
+      }
+
+      // If we found a better price, persist it back to storage so it's consistent next time
+      if (price && Number(item.price) !== price) {
+        cart[index].price = price;
+        saveCart(cart);
+      }
+
+      const itemTotal = price * qty;
+      total += itemTotal;
+
+      html += `
+        <tr>
+          <td>
+            <div class="product-cell">
+              <img src="${item.image || 'https://via.placeholder.com/60x60/DA291C/FFFFFF?text=' + encodeURIComponent(item.name)}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/60x60/DA291C/FFFFFF?text=Food'">
+              <div class="info">
+                <h4>${item.name}</h4>
+                <p>${item.desc || ''}</p>
+              </div>
+            </div>
+          </td>
+          <td class="item-price">${price ? formatPrice(price) : '0đ'}</td>
+          <td>
+            <div class="qty-control">
+              <button onclick="updateQty(${index}, -1)">−</button>
+              <span>${qty}</span>
+              <button onclick="updateQty(${index}, 1)">+</button>
+            </div>
+          </td>
+          <td class="item-total">${formatPrice(itemTotal)}</td>
+          <td>
+            <button class="remove-btn" onclick="removeItem(${index})" title="Xóa">✕</button>
+          </td>
+        </tr>
+      `;
+    });
+
+    tbody.innerHTML = html;
+    totalEl.textContent = formatPrice(total);
+  }
+
+  // Cập nhật số lượng
+  window.updateQty = function(index, delta) {
+    const cart = getCart();
+    if (index >= 0 && index < cart.length) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      saveCart(cart);
+      renderCartPage();
+      updateBadge();
+      // Cập nhật badge trên các tab khác (nếu mở cùng lúc)
+      updateAllBadges();
+    }
+  };
+
+  // Xóa sản phẩm
+  window.removeItem = function(index) {
+    const cart = getCart();
+    if (index >= 0 && index < cart.length) {
+      cart.splice(index, 1);
+      saveCart(cart);
+      renderCartPage();
+      updateBadge();
+      updateAllBadges();
+    }
+  };
+
+  // Cập nhật tất cả badge trên trang (cho các tab)
+  function updateAllBadges() {
+    const cart = getCart();
+    const total = cart.reduce((sum, item) => sum + item.qty, 0);
+    document.querySelectorAll('#cartBadge').forEach(b => b.textContent = total);
+  }
+
+  // Xử lý nút thanh toán
+  document.addEventListener('DOMContentLoaded', function() {
+    renderCartPage();
+
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', function() {
+        const cart = getCart();
+        if (cart.length === 0) {
+          alert('Giỏ hàng của bạn đang trống!');
+          return;
+        }
+        alert('Cảm ơn bạn đã đặt hàng!\nTổng tiền: ' + formatPrice(cart.reduce((sum, i) => sum + i.price * i.qty, 0)));
+        // Xóa giỏ hàng sau khi thanh toán
+        localStorage.removeItem('mcdCart');
+        renderCartPage();
+        updateBadge();
+        updateAllBadges();
+      });
+    }
+  });
+</script>
+</body>
+</html>
