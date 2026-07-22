@@ -1,81 +1,124 @@
-MCDONALD'S VIỆT NAM - WEBSITE ĐẶT MÓN TRỰC TUYẾN
-Dự án môn Công nghệ Web - Nhóm 06
+# MCDONALD'S VIỆT NAM — WEBSITE ĐẶT MÓN TRỰC TUYẾN
+> **Đồ án môn Công nghệ Web** | **Nhóm thực hiện:** Nhóm 06  
+> **Năm thực hiện:** 2026 | **Dự án:** Thiết kế giao diện người dùng
 
-1. GIỚI THIỆU (INTRODUCTION)
-Chào mừng bạn đến với dự án "McDonald's Việt Nam" - một website mô phỏng hệ thống đặt món và giới thiệu sản phẩm của chuỗi nhà hàng McDonald's.
+---
 
-Dự án được xây dựng bằng các công nghệ web cơ bản: HTML5, CSS3 và JavaScript thuần (Vanilla JS). Mục đích của dự án nhằm tạo ra một giao diện người dùng thân thiện, cho phép khách hàng dễ dàng tìm hiểu thực đơn, các chương trình khuyến mãi và đặt món thông qua mô hình giỏ hàng mô phỏng.
+## 📌 1. Giới thiệu dự án (Introduction)
 
-2. YÊU CẦU HỆ THỐNG (SYSTEM REQUIREMENTS)
-Để sử dụng và kiểm tra website, người dùng cần đáp ứng các yêu cầu tối thiểu sau:
+Chào mừng bạn đến với dự án **"McDonald's Việt Nam"** — hệ thống website mô phỏng giao diện đặt món trực tuyến và giới thiệu sản phẩm cho chuỗi nhà hàng McDonald's.
 
-- Trình duyệt Web: Google Chrome (phiên bản 110+), Microsoft Edge, Mozilla Firefox, hoặc Safari (phiên bản mới nhất).
+### 🛠️ Công nghệ sử dụng
+Dự án được phát triển hoàn toàn dựa trên các công nghệ Web nền tảng:
+* **HTML5:** Cấu trúc trang web chuẩn SEO và semantic layout.
+* **CSS3:** Thiết kế giao diện hiện đại, responsive hoàn toàn trên nhiều thiết bị.
+* **Vanilla JS (JavaScript thuần):** Xử lý tương tác người dùng, hiệu ứng UI và mô phỏng giỏ hàng linh hoạt.
 
-- Kết nối Internet: Cần có kết nối mạng ổn định để tải trang web, hình ảnh và tài nguyên.
+### 🎯 Mục tiêu dự án
+* Xây dựng giao diện người dùng thân thiện, trực quan và hiện đại.
+* Cung cấp trải nghiệm duyệt thực đơn, tra cứu khuyến mãi và xem thông tin hệ thống cửa hàng.
+* Mô phỏng quy trình chọn món và tương tác với giỏ hàng thực tế.
 
-- Hệ điều hành: Tương thích với mọi hệ điều hành (Windows, macOS, iOS, Android) thông qua trình duyệt web.
+---
 
-3. CÁCH TRUY CẬP (HOW TO ACCESS THE WEBSITE)
-Website đã được xuất bản (deploy) lên môi trường GitHub Pages và có thể truy cập công khai thông qua đường dẫn sau:
+## 💻 2. Yêu cầu hệ thống (System Requirements)
 
-[https://letrandongquan.github.io/mcdonalds-web-group06/](https://letrandongquan.github.io/mcdonalds-web-group06/)
+Để đảm bảo trang web hiển thị và hoạt động mượt mà nhất, thiết bị của người dùng cần đáp ứng các tiêu chuẩn sau:
 
-4. TỔNG QUAN TÍNH NĂNG (FEATURES OVERVIEW)
-- Website cung cấp các tính năng chính sau:
+| Tiêu chí | Trình duyệt / Môi trường hỗ trợ |
+| :--- | :--- |
+| **Trình duyệt Web** | Google Chrome (v110+), Microsoft Edge, Mozilla Firefox, Safari (phiên bản mới nhất) |
+| **Kết nối mạng** | Kết nối Internet ổn định để tải hình ảnh, font chữ và bản đồ nhúng |
+| **Hệ điều hành** | Hỗ trợ đa nền tảng: Windows, macOS, Linux, iOS, Android |
 
-- Trang chủ: Giới thiệu thương hiệu, các món ăn nổi bật và thống kê cửa hàng.
+---
 
-- Thực đơn: Hiển thị chi tiết danh sách các món (Burger, Gà rán, Đồ uống) kèm giá tiền.
+## 🌐 3. Địa chỉ truy cập (How to Access)
 
-- Combo: Cung cấp các gói combo tiết kiệm với mức giá ưu đãi.
+Website đã được xuất bản (deploy) hoàn tất trên môi trường **GitHub Pages**. Bạn có thể trải nghiệm trực tiếp qua đường dẫn công khai dưới đây:
 
-- Bữa sáng và Tráng miệng: Phân loại món ăn theo nhu cầu và khung giờ cụ thể.
+🔗 **URL Website:** [https://letrandongquan.github.io/mcdonalds-web-group06/](https://letrandongquan.github.io/mcdonalds-web-group06/)
 
-- Khuyến mãi: Cập nhật các chương trình giảm giá và ưu đãi hấp dẫn.
+---
 
-- Hệ thống cửa hàng: Hiển thị danh sách cửa hàng và tích hợp bản đồ Google Maps.
+## ✨ 4. Tổng quan tính năng chính (Features Overview)
 
-- Giỏ hàng: Tính năng mô phỏng cho phép người dùng thêm món vào giỏ và theo dõi số lượng sản phẩm.
+```
+                     ┌─────────────────────────────────────────┐
+                     │     HỆ THỐNG WEBSITE MCDONALD'S JS      │
+                     └────────────────────┬────────────────────┘
+                                          │
+    ┌─────────────────┬───────────────────┼───────────────────┬─────────────────┐
+    │                 │                   │                   │                 │
+▼ Trang chủ       ▼ Thực đơn          ▼ Ưu đãi            ▼ Cửa hàng        ▼ Giỏ hàng
+- Banner nổi bật  - Danh mục món ăn   - Gói Combo         - Tra cứu địa chỉ - Thêm/Xóa món
+- Thống kê        - Chi tiết giá cả   - Khuyến mãi hot    - Bản đồ Google   - Tạm tính
+```
 
-5. HƯỚNG DẪN TỪNG BƯỚC (STEP-BY-STEP INSTRUCTIONS)
-   1. Xem thực đơn: Nhấp vào mục "Thực đơn" trên thanh điều hướng. Kéo xuống dưới để xem các danh mục con (Burger, Gà rán, Đồ uống).
+### 📋 Chi tiết các trang & phân hệ:
+1. **Trang chủ (Home):**
+   * Giới thiệu tổng quan thương hiệu McDonald's Việt Nam.
+   * Banner trình chiếu các sản phẩm nổi bật và các con số thống kê ấn tượng.
+2. **Thực đơn (Menu):**
+   * Hiển thị danh sách món ăn đa dạng: *Burger, Gà rán, Đồ uống, Bữa sáng & Tráng miệng*.
+   * Đầy đủ hình ảnh, tên món và giá niêm yết rõ ràng.
+3. **Gói Combo & Khuyến mãi:**
+   * Tổng hợp các chương trình ưu đãi giảm giá hot.
+   * Các gói combo tiết kiệm dành cho cá nhân và nhóm.
+4. **Hệ thống cửa hàng (Store Locator):**
+   * Danh sách địa chỉ các chi nhánh.
+   * Tích hợp bản đồ **Google Maps** giúp tìm kiếm vị trí cửa hàng gần nhất.
+5. **Giỏ hàng mô phỏng (Shopping Cart):**
+   * Cho phép chọn món, tăng/giảm số lượng và tính tổng tiền theo thời gian thực.
 
-   2. Thêm món vào giỏ hàng: Tại mỗi món ăn hoặc combo, nhấp vào nút "+" (màu đỏ) để thêm sản phẩm vào giỏ hàng.
+---
 
-   3. Kiểm tra giỏ hàng: Nhấp vào biểu tượng xe đẩy ở góc phải thanh menu (hoặc bấm vào nút giỏ hàng nổi ở góc dưới cùng bên phải màn hình) để xem danh sách món đã chọn.
+## 📖 5. Hướng dẫn sử dụng từng bước (Step-by-Step Instructions)
 
-   4. Đặt hàng (Mô phỏng): Sau khi đã chọn món, nhấp vào nút "Đặt hàng" trên thanh menu. Hiện tại tính năng đang dừng ở bước mô phỏng.
+### Step 1 ➔ Duyệt và xem thực đơn
+> Nhấp vào mục **"Thực đơn"** trên thanh điều hướng (Navigation Bar). Kéo xuống để chọn danh mục mong muốn như *Burger, Gà rán, Đồ uống...*
 
+### Step 2 ➔ Thêm món vào giỏ
+> Tại mỗi thẻ món ăn hoặc gói combo, bấm vào nút **`+` (màu đỏ)** để thêm nhanh món đó vào giỏ hàng.
 
+### Step 3 ➔ Kiểm tra giỏ hàng
+> Nhấp vào **biểu tượng Xe đẩy** ở góc phải thanh menu (hoặc **nút giỏ hàng nổi** ở góc dưới bên phải màn hình) để mở bảng xem lại danh sách các món đã chọn.
 
-6. HÌNH ẢNH MINH HỌA (SCREENSHOTS)
+### Step 4 ➔ Đặt hàng mô phỏng
+> Bấm nút **"Đặt hàng"** để tiến hành kiểm tra đơn hàng. *(Lưu ý: Hiện tại tính năng đang dừng ở bước mô phỏng giao diện).*
 
-- Hình 1: Giao diện Trang chủ
-  ![Trang chu](image_01.png)
+---
 
-- Hình 2: Danh sách combo ưu đãi
-  ![Combo](image_02.png)
+## 🖼️ 6. Hình ảnh minh họa (Screenshots)
 
-- Hình 3: Giao diện giỏ hàng mô phỏng
-  ![Gio hang](image_03.png)
+* **Hình 1:** Giao diện Trang chủ & Banner chính (`image_01.png`)
+* **Hình 2:** Danh sách Combo ưu đãi & Thực đơn (`image_02.png`)
+* **Hình 3:** Giao diện Giỏ hàng mô phỏng (`image_03.png`)
 
-7. HẠN CHẾ HIỆN TẠI (KNOWN LIMITATIONS)
-- Hiện tại, hệ thống chưa tích hợp Backend (Xử lý thanh toán thực tế) và chưa kết nối với cơ sở dữ liệu.
+---
 
-- Dữ liệu giỏ hàng hiện chỉ lưu trữ tạm thời trên trình duyệt và sẽ trở về 0 khi người dùng tải lại trang (chưa sử dụng `LocalStorage` để lưu trữ vĩnh viễn).
+## ⚠️ 7. Hạn chế hiện tại (Known Limitations)
 
-8. DANH SÁCH KIỂM TRA TRƯỚC KHINỘP (SUBMISSION CHECKLIST)
-Trước khi nộp báo cáo, nhóm đã kiểm tra và xác nhận các mục sau:
+* **Chưa có Backend & Database:** Hệ thống chưa tích hợp xử lý thanh toán thực tế và chưa lưu trữ dữ liệu vào cơ sở dữ liệu máy chủ.
+* **Lưu trữ dữ liệu tạm thời:** Thông tin giỏ hàng hiện lưu trên bộ nhớ tạm của trang. Khi tải lại trang (F5), dữ liệu giỏ hàng sẽ làm mới về `0` (chưa áp dụng `LocalStorage` / `SessionStorage`).
 
-- Website đã được xuất bản lên GitHub Pages và chạy được bằng link công khai. (Đạt)
+---
 
-- Repository trên GitHub đã đặt chế độ Public (Công khai). (Đạt)
+## ✅ 8. Danh sách kiểm tra hoàn thành (Submission Checklist)
 
-- Tất cả các liên kết (Link điều hướng, Link hình ảnh, CSS/JS) đều hoạt động (Không bị lỗi 404). (Đạt)
+| STT | Hạng mục kiểm tra | Trạng thái |
+| :-: | :--- | :-: |
+| **1** | Website đã deploy lên GitHub Pages và truy cập ổn định bằng link công khai | **[PASSED]** |
+| **2** | GitHub Repository đã được chuyển sang chế độ **Public** | **[PASSED]** |
+| **3** | Tất cả liên kết (điều hướng, hình ảnh, tài nguyên CSS/JS) hoạt động tốt, không lỗi 404 | **[PASSED]** |
+| **4** | Tài liệu hướng dẫn người dùng (User Guide / README) đầy đủ các mục theo yêu cầu | **[PASSED]** |
+| **5** | Đã điền chính xác URL trang web vào mục *"Published Website URL"* khi nộp bài | **[PASSED]** |
 
-- File PDF/Word báo cáo (User Guide) đã hoàn thiện đầy đủ các mục yêu cầu. (Đạt)
+---
 
-- Đã dán chính xác đường dẫn URL Website vào mục "Published Website URL" trong bài nộp. (Đạt)
+<div align="center">
 
+© 2026 **Nhóm 06** — Dự án Thiết kế giao diện người dùng  
+*Trường Đại học Công nghệ / Khoa CNTT*
 
-(c) 2026 Nhom 06 - Dự án Thiết kế giao diện người dùng.
+</div>
