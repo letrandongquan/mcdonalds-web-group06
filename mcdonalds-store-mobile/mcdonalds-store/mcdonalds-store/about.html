@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Về chúng tôi - McDonald's</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== Nút giỏ hàng trên header ===== */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .cart-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+    .cart-btn:hover {
+      border-color: var(--yellow);
+      background: rgba(255,199,44,0.12);
+      transform: translateY(-1px);
+    }
+    .cart-btn:active {
+      transform: translateY(0);
+    }
+    .cart-btn .cart-icon {
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+    }
+    .cart-btn .cart-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 18px;
+      text-align: center;
+      box-shadow: 0 0 0 2px #0d0d0d;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="index.html" class="logo"><img src="images/logo/logo.png" alt="McDonald's" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"><span class="logo-fallback">McDonald's</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Trang chủ</a>
+      <a href="menu.html">Thực đơn</a>
+      <a href="combo.html">Combo</a>
+      <a href="breakfast.html">Bữa sáng</a>
+      <a href="dessert.html">Tráng miệng</a>
+      <a href="deals.html">Khuyến mãi</a>
+      <a href="about.html" class="active">Về chúng tôi</a>
+      <a href="stores.html">Cửa hàng</a>
+      <a href="contact.html">Liên hệ</a>
+    </nav>
+    <div class="nav-right">
+      <!-- NÚT GIỎ HÀNG -->
+      <button class="cart-btn" id="cartBtn" aria-label="Giỏ hàng">
+        <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1.4"></circle>
+          <circle cx="19" cy="21" r="1.4"></circle>
+          <path d="M1 1h3.2l2.68 13.39a2 2 0 0 0 2 1.61h9.3a2 2 0 0 0 2-1.62L22 6H6"></path>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <a href="menu.html" class="btn btn-primary">Đặt hàng</a>
+      <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="ticker stripes">
+  <div class="ticker-track"><span>COMBO 1+1 mỗi thứ Ba hàng tuần</span><span>Miễn phí giao hàng cho đơn từ 99.000đ</span><span>Tải app nhận ngay ưu đãi 50.000đ</span><span>Phục vụ Bữa Sáng từ 6:00 - 10:30</span><span>COMBO 1+1 mỗi thứ Ba hàng tuần</span><span>Miễn phí giao hàng cho đơn từ 99.000đ</span></div>
+</div>
+
+<main class="container">
+  <section class="about-section" style="padding:60px 0;">
+    <div class="about-inner">
+      <div class="item-img"><img src="images/about/about_store.jpg" alt="Cửa hàng McDonald's" onerror="this.src='https://via.placeholder.com/600x450/DA291C/FFFFFF?text=McDonald%27s'"></div>
+      <div>
+        <span class="eyebrow">Về chúng tôi</span>
+        <h2>Hơn 30 năm mang lại niềm vui trong từng bữa ăn</h2>
+        <p style="color:var(--text-soft);margin-top:14px;">McDonald's tự hào là điểm đến quen thuộc của hàng triệu gia đình Việt Nam, với cam kết về chất lượng nguyên liệu, tốc độ phục vụ và trải nghiệm thân thiện trong từng cửa hàng.</p>
+        <p style="color:var(--text-soft);margin-top:10px;">Chúng tôi không ngừng đổi mới để mang đến những sản phẩm phù hợp với khẩu vị địa phương, đồng thời giữ gìn những giá trị cốt lõi đã làm nên thương hiệu toàn cầu.</p>
+        <div class="values">
+          <div class="value-card"><span class="num">01</span><h5>Chất lượng</h5><p>Nguyên liệu tươi, kiểm soát nghiêm ngặt từng công đoạn.</p></div>
+          <div class="value-card"><span class="num">02</span><h5>Tốc độ</h5><p>Phục vụ nhanh chóng, không để bạn chờ lâu.</p></div>
+          <div class="value-card"><span class="num">03</span><h5>Giá trị</h5><p>Mức giá hợp lý cho bữa ăn chất lượng mỗi ngày.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="images/logo/logo.png" alt="McDonald's" onerror="this.style.display='none'"></div>
+        <p class="footer-p">Mang lại niềm vui trong từng bữa ăn cho mọi gia đình Việt Nam.</p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/McDonalds/" target="_blank" rel="noopener noreferrer"><img src="images/icons/facebook.png" alt="Facebook" onerror="this.style.opacity='0.2'"></a>
+          <a href="https://www.instagram.com/mcdonalds/" target="_blank" rel="noopener noreferrer"><img src="images/icons/instagram.png" alt="Instagram" onerror="this.style.opacity='0.2'"></a>
+          <a href="https://www.tiktok.com/@mcdonalds" target="_blank" rel="noopener noreferrer"><img src="images/icons/tiktok.png" alt="TikTok" onerror="this.style.opacity='0.2'"></a>
+          <a href="https://www.youtube.com/@McDonalds" target="_blank" rel="noopener noreferrer"><img src="images/icons/youtube.png" alt="YouTube" onerror="this.style.opacity='0.2'"></a>
+        </div>
+      </div>
+      <div><h5>Thực đơn</h5><ul><li><a href="menu.html#burger">Burger</a></li><li><a href="menu.html#ga">Gà rán</a></li><li><a href="menu.html#drinks">Đồ uống</a></li><li><a href="combo.html">Combo</a></li></ul></div>
+      <div><h5>Công ty</h5><ul><li><a href="about.html">Về chúng tôi</a></li><li><a href="stores.html">Cửa hàng</a></li><li><a href="#">Tuyển dụng</a></li><li><a href="#">Tin tức</a></li></ul></div>
+      <div><h5>Hỗ trợ</h5><ul><li><a href="contact.html">Liên hệ</a></li><li><a href="#">Câu hỏi thường gặp</a></li><li><a href="#">Chính sách bảo mật</a></li><li><a href="#">Điều khoản sử dụng</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 McDonald's Việt Nam</span></div>
+  </div>
+</footer>
+
+<!-- NÚT GIỎ HÀNG NỔI (FLOAT) -->
+<a href="cart.html" class="float-cart" id="floatCart" style="z-index:120; background:var(--red); width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 24px -6px rgba(218,41,28,.65); position:fixed; bottom:20px; right:20px; text-decoration:none;">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;pointer-events:none;">
+    <circle cx="9" cy="21" r="1.4"></circle>
+    <circle cx="19" cy="21" r="1.4"></circle>
+    <path d="M1 1h3.2l2.68 13.39a2 2 0 0 0 2 1.61h9.3a2 2 0 0 0 2-1.62L22 6H6"></path>
+  </svg>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
