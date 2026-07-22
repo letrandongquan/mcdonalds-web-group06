@@ -122,6 +122,6 @@ Website đã được xuất bản (deploy) hoàn tất trên môi trường **G
 <div align="center">
 
 © 2026 **Nhóm 06** — Dự án Thiết kế giao diện người dùng  
-*Trường Đại học Công nghệ / Khoa CNTT*
+*Trường Đại học Văn Lang / Khoa CNTT*
 
 </div>
