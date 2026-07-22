@@ -1,82 +1,81 @@
-MCDONALD'S VIET NAM - WEBSITE DAT MON TRUC TUYEN
+MCDONALD'S VIỆT NAM - WEBSITE ĐẶT MÓN TRỰC TUYẾN
+Dự án môn Công nghệ Web - Nhóm 06
 
-Du an mon Cong nghe Web - Nhom 06
+1. GIỚI THIỆU (INTRODUCTION)
+Chào mừng bạn đến với dự án "McDonald's Việt Nam" - một website mô phỏng hệ thống đặt món và giới thiệu sản phẩm của chuỗi nhà hàng McDonald's.
 
-1. INTRODUCTION (GIOI THIEU)
+Dự án được xây dựng bằng các công nghệ web cơ bản: HTML5, CSS3 và JavaScript thuần (Vanilla JS). Mục đích của dự án nhằm tạo ra một giao diện người dùng thân thiện, cho phép khách hàng dễ dàng tìm hiểu thực đơn, các chương trình khuyến mãi và đặt món thông qua mô hình giỏ hàng mô phỏng.
 
-Chao mung ban den voi du an "McDonald's Viet Nam" - mot website mo phong he thong dat mon va gioi thieu san pham cua chuoi nha hang McDonald's.
+2. YÊU CẦU HỆ THỐNG (SYSTEM REQUIREMENTS)
+Để sử dụng và kiểm tra website, người dùng cần đáp ứng các yêu cầu tối thiểu sau:
 
-Du an duoc xay dung bang cac cong nghe web co ban: HTML5, CSS3 va JavaScript thuan (Vanilla JS). Muc dich cua du an nham tao ra mot giao dien nguoi dung than thien, cho phep khach hang de dang tim hieu thuc don, cac chuong trinh khuyen mai va dat mon thong qua mo hinh gio hang mo phong.
+- Trình duyệt Web: Google Chrome (phiên bản 110+), Microsoft Edge, Mozilla Firefox, hoặc Safari (phiên bản mới nhất).
 
+- Kết nối Internet: Cần có kết nối mạng ổn định để tải trang web, hình ảnh và tài nguyên.
 
-2. SYSTEM REQUIREMENTS (YEU CAU HE THONG)
+- Hệ điều hành: Tương thích với mọi hệ điều hành (Windows, macOS, iOS, Android) thông qua trình duyệt web.
 
-De su dung va kiem tra website, nguoi dung can dap ung cac yeu cau toi thieu sau:
-
-- Trinh duyet Web: Google Chrome (phien ban 110+), Microsoft Edge, Mozilla Firefox, hoac Safari (phien ban moi nhat).
-- Ket noi Internet: Can co ket noi mang on dinh de tai trang web, hinh anh va tai nguyen.
-- He dieu hanh: Tuong thich voi moi he dieu hanh (Windows, macOS, iOS, Android) thong qua trinh duyet web.
-
-
-3. HOW TO ACCESS THE WEBSITE (CACH TRUY CAP)
-
-Website da duoc xuat ban (deploy) len moi truong GitHub Pages va co the truy cap cong khai thong qua duong dan sau:
+3. CÁCH TRUY CẬP (HOW TO ACCESS THE WEBSITE)
+Website đã được xuất bản (deploy) lên môi trường GitHub Pages và có thể truy cập công khai thông qua đường dẫn sau:
 
 [https://letrandongquan.github.io/mcdonalds-web-group06/](https://letrandongquan.github.io/mcdonalds-web-group06/)
 
+4. TỔNG QUAN TÍNH NĂNG (FEATURES OVERVIEW)
+- Website cung cấp các tính năng chính sau:
 
-4. FEATURES OVERVIEW (TONG QUAN TINH NANG)
+- Trang chủ: Giới thiệu thương hiệu, các món ăn nổi bật và thống kê cửa hàng.
 
-Website cung cap cac tinh nang chinh sau:
+- Thực đơn: Hiển thị chi tiết danh sách các món (Burger, Gà rán, Đồ uống) kèm giá tiền.
 
-- Trang chu: Gioi thieu thuong hieu, cac mon an noi bat va thong ke cua hang.
-- Thuc don: Hien thi chi tiet danh sach cac mon (Burger, Ga ran, Do uong) kem gia tien.
-- Combo: Cung cap cac goi combo tiet kiem voi muc gia uu dai.
-- Bua sang va Trang mieng: Phan loai mon an theo nhu cau va khung gio cu the.
-- Khuyen mai: Cap nhat cac chuong trinh giam gia va uu dai hap dan.
-- He thong cua hang: Hien thi danh sach cua hang va tich hop ban do Google Maps.
-- Gio hang: Tinh nang mo phong cho phep nguoi dung them mon vao gio va theo doi so luong san pham.
+- Combo: Cung cấp các gói combo tiết kiệm với mức giá ưu đãi.
+
+- Bữa sáng và Tráng miệng: Phân loại món ăn theo nhu cầu và khung giờ cụ thể.
+
+- Khuyến mãi: Cập nhật các chương trình giảm giá và ưu đãi hấp dẫn.
+
+- Hệ thống cửa hàng: Hiển thị danh sách cửa hàng và tích hợp bản đồ Google Maps.
+
+- Giỏ hàng: Tính năng mô phỏng cho phép người dùng thêm món vào giỏ và theo dõi số lượng sản phẩm.
+
+5. HƯỚNG DẪN TỪNG BƯỚC (STEP-BY-STEP INSTRUCTIONS)
+   1. Xem thực đơn: Nhấp vào mục "Thực đơn" trên thanh điều hướng. Kéo xuống dưới để xem các danh mục con (Burger, Gà rán, Đồ uống).
+
+   2. Thêm món vào giỏ hàng: Tại mỗi món ăn hoặc combo, nhấp vào nút "+" (màu đỏ) để thêm sản phẩm vào giỏ hàng.
+
+   3. Kiểm tra giỏ hàng: Nhấp vào biểu tượng xe đẩy ở góc phải thanh menu (hoặc bấm vào nút giỏ hàng nổi ở góc dưới cùng bên phải màn hình) để xem danh sách món đã chọn.
+
+   4. Đặt hàng (Mô phỏng): Sau khi đã chọn món, nhấp vào nút "Đặt hàng" trên thanh menu. Hiện tại tính năng đang dừng ở bước mô phỏng.
 
 
-5. STEP-BY-STEP INSTRUCTIONS (HUONG DAN TUONG BUOC)
 
-1. Xem thuc don:
-   Nhap vao muc "Thuc don" tren thanh dieu huong. Keo xuong duoi de xem cac danh muc con (Burger, Ga ran, Do uong).
+6. HÌNH ẢNH MINH HỌA (SCREENSHOTS)
 
-2. Them mon vao gio hang:
-   Tai moi mon an hoac combo, nhap vao nut "+" (mau do) de them san pham vao gio hang.
-
-3. Kiem tra gio hang:
-   Nhap vao bieu tuong xe day o goc phai thanh menu (hoac bam vao nut gio hang noi o goc duoi cung ben phai man hinh) de xem danh sach mon da chon.
-
-4. Dat hang (Mo phong):
-   Sau khi da chon mon, nhap vao nut "Dat hang" tren thanh menu. Hien tai tinh nang dang dung o buoc mo phong. 
-6. SCREENSHOTS (HINH ANH MINH HOA)
-
-- Hinh 1: Giao dien Trang chu
+- Hình 1: Giao diện Trang chủ
   ![Trang chu](image_01.png)
 
-- Hinh 2: Danh sach Combo uu dai
+- Hình 2: Danh sách combo ưu đãi
   ![Combo](image_02.png)
 
-- Hinh 3: Giao dien Gio hang mo phong
+- Hình 3: Giao diện giỏ hàng mô phỏng
   ![Gio hang](image_03.png)
 
-7. KNOWN LIMITATIONS (HAN CHE HIEN TAI)
+7. HẠN CHẾ HIỆN TẠI (KNOWN LIMITATIONS)
+- Hiện tại, hệ thống chưa tích hợp Backend (Xử lý thanh toán thực tế) và chưa kết nối với cơ sở dữ liệu.
 
-- Hien tai, he thong chua tich hop Backend (Xu ly thanh toan thuc te) va chua ket noi voi co so du lieu.
-- Du lieu gio hang hien chi luu tru tam thoi tren trinh duyet va se tro ve 0 khi nguoi dung tai lai trang (chua su dung LocalStorage de luu tru vinh vien).
+- Dữ liệu giỏ hàng hiện chỉ lưu trữ tạm thời trên trình duyệt và sẽ trở về 0 khi người dùng tải lại trang (chưa sử dụng `LocalStorage` để lưu trữ vĩnh viễn).
 
+8. DANH SÁCH KIỂM TRA TRƯỚC KHINỘP (SUBMISSION CHECKLIST)
+Trước khi nộp báo cáo, nhóm đã kiểm tra và xác nhận các mục sau:
 
-8. SUBMISSION CHECKLIST (DANH SACH KIEM TRA TRUOC KHI NOP)
+- Website đã được xuất bản lên GitHub Pages và chạy được bằng link công khai. (Đạt)
 
-Truoc khi nop bao cao, nhom da kiem tra va xac nhan cac muc sau:
+- Repository trên GitHub đã đặt chế độ Public (Công khai). (Đạt)
 
-1. Website da duoc xuat ban len GitHub Pages va chay duoc bang link cong khai. (Dat)
-2. Repository tren GitHub da dat che do Public (Cong khai). (Dat)
-3. Tat ca cac lien ket (Link dieu huong, Link hinh anh, CSS/JS) deu hoat dong (Khong bi loi 404). (Dat)
-4. File PDF/Word bao cao (User Guide) da hoan thien day du cac muc yeu cau. (Dat)
-5. Da dan chinh xac duong dan URL Website vao muc "Published Website URL" trong bai nop. (Dat)
+- Tất cả các liên kết (Link điều hướng, Link hình ảnh, CSS/JS) đều hoạt động (Không bị lỗi 404). (Đạt)
+
+- File PDF/Word báo cáo (User Guide) đã hoàn thiện đầy đủ các mục yêu cầu. (Đạt)
+
+- Đã dán chính xác đường dẫn URL Website vào mục "Published Website URL" trong bài nộp. (Đạt)
 
 
 (c) 2026 Nhom 06 - Dự án Thiết kế giao diện người dùng.
