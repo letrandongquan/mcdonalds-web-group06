@@ -79,5 +79,4 @@ Truoc khi nop bao cao, nhom da kiem tra va xac nhan cac muc sau:
 5. Da dan chinh xac duong dan URL Website vao muc "Published Website URL" trong bai nop. (Dat)
 
 
-(c) 2026 Nhom 06 - Du an Cong nghe Web. Moi quyen duoc bao luu.
-Trang web demo phuc vu muc dich hoc tap va phi loi nhuan.
+(c) 2026 Nhom 06 - Dự án Thiết kế giao diện người dùng.
