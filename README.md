@@ -91,9 +91,9 @@ Website đã được xuất bản (deploy) hoàn tất trên môi trường **G
 
 ## 🖼️ 6. Hình ảnh minh họa (Screenshots)
 
-* **Hình 1:** Giao diện Trang chủ & Banner chính (`image_01.png`)
-* **Hình 2:** Danh sách Combo ưu đãi & Thực đơn (`image_02.png`)
-* **Hình 3:** Giao diện Giỏ hàng mô phỏng (`image_03.png`)
+* **Hình 1:** Giao diện Trang chủ & Banner chính (image_01.png)
+* **Hình 2:** Danh sách Combo ưu đãi & Thực đơn (image_02.png)
+* **Hình 3:** Giao diện Giỏ hàng mô phỏng (image_03.png)
 
 ---
 
